@@ -4,6 +4,7 @@ import numpy as np
 from ultralytics import YOLO
 from PIL import Image
 import os
+import dill
 
 # Set the title of the Streamlit app
 st.title("YOLO Image and Video Processing")
