@@ -42,7 +42,7 @@ This project implements automatic car license plate detection using YOLO v9, and
 
 ## Dependencies
 
-- **YOLOv9:** Utilized for object detection and localization.
+- **YOLOv8:** Utilized for object detection and localization.
 - **PyTesseract:** For OCR to extract text from license plate regions.
   - **Streamlit:** Framework for deploying and interacting with machine learning applications.
 - **OpenCV:** Image and video processing library used for loading, processing, and saving media files.
