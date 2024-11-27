@@ -1,61 +1,55 @@
-# Automatic Car License Plate Detection
+# Automatic-Number-Plate-Recognition-YOLOv8
+## Demo
 
-This project implements automatic car license plate detection using YOLO v9, and trained on a custom dataset obtained from Kaggle. It utilizes pytesseract for Optical Character Recognition (OCR) to extract license plate numbers from detected plates. The application is deployed using Streamlit for easy user interaction.
 
-## Features
+https://github.com/Muhammad-Zeerak-Khan/Automatic-License-Plate-Recognition-using-YOLOv8/assets/79400407/1af57131-3ada-470a-b798-95fff00254e6
 
-- **Upload Media:** Allows users to upload images or videos for license plate detection.
-- **Real-time Processing:** Capable of processing both images and videos, displaying results promptly.
-- **License Plate Recognition:** Detects license plates in uploaded media and extracts alphanumeric characters using pytesseract.
-- **Output Visualization:** Displays annotated images or processed videos with bounding boxes around detected license plates and recognized text overlay.
 
-## Installation
-1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/AbdurRahman22224/YOLO-Car-License-Plate-Detection
-   cd YOLO-Car-License-Plate-Detection
-   ```
+## Data
 
-2. Install dependencies:
+The video used in the tutorial can be downloaded [here](https://drive.google.com/file/d/1JbwLyqpFCXmftaJY1oap8Sa6KfjoWJta/view?usp=sharing).
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Model
 
-   Make sure to have the necessary versions of Python and CUDA installed if using GPU. (my output is cpu based)
+A Yolov8 pre-trained model (YOLOv8n) was used to detect vehicles.
 
-3. Run the Streamlit app:
-
-   ```bash
-   streamlit run app.py
-   ```
-
-   Replace `app.py` with the name of your Streamlit application script.
-
-## Usage
-
-- Access the Streamlit web interface locally or on a server where the app is deployed.
-- Upload an image or video file containing cars with visible license plates.
-- Click "Proceed" to start processing.
-- The application will display the processed media with annotated license plates.
+A licensed plate detector was used to detect license plates. The model was trained with Yolov8 using [this dataset](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4). 
+- The model is available [here](https://drive.google.com/file/d/1Zmf5ynaTFhmln2z7Qvv-tgjkWQYQ9Zdw/view?usp=sharing).
 
 ## Dependencies
 
-- **YOLOv8:** Utilized for object detection and localization.
-- **PyTesseract:** For OCR to extract text from license plate regions.
-  - **Streamlit:** Framework for deploying and interacting with machine learning applications.
-- **OpenCV:** Image and video processing library used for loading, processing, and saving media files.
+The sort module needs to be downloaded from [this repository](https://github.com/abewley/sort).
 
-## Contributing
+```bash
+git clone https://github.com/abewley/sort
+```
 
-Contributions are welcome! Please fork the repository and create a pull request for any improvements or additional features.
-## Acknowledgments
+## Project Setup
 
-- **Ultralytics YOLO:** For providing a powerful YOLO implementation.
-- **Kaggle:** For the dataset used for training.
-- **Streamlit Community:** For the intuitive framework for deploying ML applications.
+* Make an environment with python=3.10 using the following command 
+``` bash
+conda create --prefix ./env python==3.10 -y
+```
+* Activate the environment
+``` bash
+source activate ./env
+``` 
 
-## Contact
+* Install the project dependencies using the following command 
+```bash
+pip install -r requirements.txt
+```
+* Run main.py with the sample video file to generate the test.csv file 
+``` python
+python main.py
+```
+* Run the add_missing_data.py file for interpolation of values to match up for the missing frames and smooth output.
+```python
+python add_missing_data.py
+```
 
-For questions or support regarding this project, please contact [Samarth Solanki](samarthsolanki56@gmail.com).
+* Finally run the visualize.py passing in the interpolated csv files and hence obtaining a smooth output for license plate detection.
+```python
+python visualize.py
+```

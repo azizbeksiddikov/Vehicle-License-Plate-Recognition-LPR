@@ -1,6 +1,7 @@
+ultralytics==8.0.114
 pandas
-matplotlib
-streamlit
-opencv-python-headless
-ultralytics
-dill
+opencv-python
+numpy
+scipy
+easyocr
+filterpy
